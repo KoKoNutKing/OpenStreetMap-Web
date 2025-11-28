@@ -35,7 +35,20 @@ export default function MapView({ selectedLocation }: MapViewProps) {
       {selectedLocation && (
         <>
           <Marker position={[selectedLocation.lat, selectedLocation.lon]}>
-            <Popup>{selectedLocation.display_name}</Popup>
+            <Popup>
+              <div>
+                <strong>Địa điểm đã chọn:</strong> {selectedLocation.display_name}
+              </div>
+              <div>
+                <b>Tọa độ:</b> {selectedLocation.lat}, {selectedLocation.lon}
+              </div>
+              <div>
+                <b>Loại:</b> {selectedLocation.type}
+              </div>
+              <div>
+                <b>Địa chỉ:</b> {selectedLocation.address?.road} - {selectedLocation.address?.city}
+              </div>
+            </Popup>
           </Marker>
           <RecenterMap location={selectedLocation} />
         </>

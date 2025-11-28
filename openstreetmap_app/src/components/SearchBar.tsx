@@ -15,7 +15,7 @@ export default function SearchBox({ onSelectLocation }: SearchBoxProps) {
     setIsSearching(true);
     
     try {
-      const url = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(query)}&limit=5`;
+      const url = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(query)}&limit=5&format=json&addressdetails=1`;
       const res = await fetch(url);
       const data = await res.json();
 
@@ -23,8 +23,12 @@ export default function SearchBox({ onSelectLocation }: SearchBoxProps) {
         data.map((item: any) => ({
           lat: parseFloat(item.lat),
           lon: parseFloat(item.lon),
-          name: item.display_name,
+          name: <item className="name"></item>, // Lấy phần tên đầu tiên làm name
           display_name: item.display_name,
+          class: item.class,       // Ví dụ: amenity, highway, tourism...
+          type: item.type,             // Lấy type từ API
+          importance: item.importance, // Lấy importance
+          address: item.address        // API trả về nguyên cụm address, gán thẳng vào luôn
         }))
       );
     } catch (error) {

@@ -2,6 +2,7 @@ import { useState } from "react";
 import SearchBox from "./components/SearchBar";
 import MapView from "./components/Map";
 import WeatherCard from "./components/WeatherCard";
+import TranslateBox from "./components/TranslateBox";
 import {type LatLng } from "./types";
 import "./App.css"; // Giữ file css cũ nếu bạn có style reset margin/padding
 
@@ -28,6 +29,10 @@ function App() {
           />
         )}
       </div>
+
+      {/* Phần 3: Hộp dịch thuật */}
+      <TranslateBox />
+    
     </div>
   );
 }
