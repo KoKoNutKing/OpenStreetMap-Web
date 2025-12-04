@@ -23,7 +23,7 @@ export default function SearchBox({ onSelectLocation }: SearchBoxProps) {
         data.map((item: any) => ({
           lat: parseFloat(item.lat),
           lon: parseFloat(item.lon),
-          name: <item className="name"></item>, // Lấy phần tên đầu tiên làm name
+          name: item.display_name.split(',')[0], // Lấy phần tên đầu tiên làm name
           display_name: item.display_name,
           class: item.class,       // Ví dụ: amenity, highway, tourism...
           type: item.type,             // Lấy type từ API

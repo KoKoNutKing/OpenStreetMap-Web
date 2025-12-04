@@ -28,7 +28,7 @@ export default function MapView({ selectedLocation }: MapViewProps) {
     >
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        attribution='&copy; Tôi lấy map của OpenStreetMap'
+        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       />
 
       {/* Nếu có vị trí được chọn thì hiển thị Marker và căn giữa bản đồ */}
